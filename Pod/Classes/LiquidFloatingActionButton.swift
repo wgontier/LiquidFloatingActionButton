@@ -37,14 +37,14 @@ public class LiquidFloatingActionButton : UIView {
             baseView.animateStyle = animateStyle
         }
     }
-    public var enableShadow = true {
+    @IBInspectable public var enableShadow = true {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    public var delegate:   LiquidFloatingActionButtonDelegate?
-    public var dataSource: LiquidFloatingActionButtonDataSource?
+    @IBInspectable public var delegate:   LiquidFloatingActionButtonDelegate?
+    @IBInspectable public var dataSource: LiquidFloatingActionButtonDataSource?
 
     public var responsible = true
     public var isOpening: Bool  {
@@ -456,25 +456,25 @@ public class LiquidFloatingCell : LiquittableCircle {
     // for implement responsible color
     private var originalColor: UIColor
     
-    public override var frame: CGRect {
+    @objc public override var frame: CGRect {
         didSet {
             resizeSubviews()
         }
     }
 
-    init(center: CGPoint, radius: CGFloat, color: UIColor, icon: UIImage) {
+    @objc init(center: CGPoint, radius: CGFloat, color: UIColor, icon: UIImage) {
         self.originalColor = color
         super.init(center: center, radius: radius, color: color)
         setup(image : icon)
     }
 
-    init(center: CGPoint, radius: CGFloat, color: UIColor, view: UIView) {
+    @objc init(center: CGPoint, radius: CGFloat, color: UIColor, view: UIView) {
         self.originalColor = color
         super.init(center: center, radius: radius, color: color)
         setupView(view : view)
     }
     
-    public init(icon: UIImage) {
+    @objc public init(icon: UIImage) {
         self.originalColor = UIColor.clear
         super.init()
         setup(image : icon)
@@ -490,7 +490,7 @@ public class LiquidFloatingCell : LiquittableCircle {
         setupView(view : imageView)
     }
     
-    public func setupView(view: UIView) {
+    @objc public func setupView(view: UIView) {
         isUserInteractionEnabled = false
         addSubview(view)
         resizeSubviews()
