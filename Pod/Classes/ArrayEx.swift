@@ -9,11 +9,9 @@
 import Foundation
 
 extension Array {
-    
-    func each(_ f: (Element) -> ()) {
+    func each(f: (Element) -> ()) {
         for item in self {
             f(item)
         }
     }
-    
 }
